@@ -1,0 +1,58 @@
+INFO 10-11 17:31:40 __init__.py:183] Automatically detected platform cuda.
+--max_samples WAS SET. THESE NUMBERS ARE ONLY PARTIAL AND SHOULD NOT BE USED FOR COMPARISON UNLESS YOU KNOW WHAT YOU ARE DOING.
+The model has a long context length (34816). This may cause OOM errors during the initial memory profiling phase, or result in low performance due to small KV cache space. Consider setting --max-model-len to a smaller value.
+To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+Async output processing is not supported on the current platform type cuda.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.84it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.84it/s]
+
+If you want to use extended_tasks, make sure you installed their dependencies using `pip install -e .[extended_tasks]`.
+Careful, the task custom|math_500 is using evaluation data to build the few shot examples.
+You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring.
+Splits:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed prompts:   0%|          | 0/100 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   1%|          | 1/100 [00:28<47:14, 28.64s/it, est. speed input: 1.40 toks/s, output: 37.96 toks/s][A
+Processed prompts:   2%|▏         | 2/100 [00:34<24:32, 15.02s/it, est. speed input: 2.73 toks/s, output: 69.27 toks/s][A
+Processed prompts:   3%|▎         | 3/100 [00:35<14:03,  8.69s/it, est. speed input: 3.97 toks/s, output: 104.29 toks/s][A
+Processed prompts:   4%|▍         | 4/100 [00:36<09:26,  5.90s/it, est. speed input: 8.21 toks/s, output: 136.81 toks/s][A
+Processed prompts:   5%|▌         | 5/100 [00:43<09:41,  6.12s/it, est. speed input: 8.59 toks/s, output: 152.81 toks/s][A
+Processed prompts:   6%|▌         | 6/100 [00:49<09:22,  5.99s/it, est. speed input: 9.50 toks/s, output: 171.00 toks/s][A
+Processed prompts:   7%|▋         | 7/100 [00:51<07:33,  4.88s/it, est. speed input: 11.83 toks/s, output: 198.16 toks/s][A
+Processed prompts:   8%|▊         | 8/100 [01:01<09:50,  6.42s/it, est. speed input: 10.88 toks/s, output: 201.58 toks/s][A
+Processed prompts:   9%|▉         | 9/100 [01:05<08:41,  5.73s/it, est. speed input: 11.08 toks/s, output: 223.09 toks/s][A
+Processed prompts:  10%|█         | 10/100 [01:06<06:11,  4.12s/it, est. speed input: 11.77 toks/s, output: 255.63 toks/s][A
+Processed prompts:  11%|█         | 11/100 [01:16<09:04,  6.12s/it, est. speed input: 10.90 toks/s, output: 253.39 toks/s][A
+Processed prompts:  12%|█▏        | 12/100 [01:19<07:22,  5.02s/it, est. speed input: 11.29 toks/s, output: 278.43 toks/s][A
+Processed prompts:  13%|█▎        | 13/100 [01:20<05:23,  3.72s/it, est. speed input: 11.85 toks/s, output: 308.95 toks/s][A
+Processed prompts:  14%|█▍        | 14/100 [01:45<14:37, 10.20s/it, est. speed input: 9.81 toks/s, output: 266.49 toks/s] [A
+Processed prompts:  15%|█▌        | 15/100 [01:48<11:22,  8.03s/it, est. speed input: 10.03 toks/s, output: 290.37 toks/s][A
+Processed prompts:  16%|█▌        | 16/100 [01:50<08:53,  6.35s/it, est. speed input: 10.62 toks/s, output: 315.06 toks/s][A
+Processed prompts:  17%|█▋        | 17/100 [01:53<07:06,  5.14s/it, est. speed input: 10.78 toks/s, output: 339.59 toks/s][A
+Processed prompts:  18%|█▊        | 18/100 [02:05<10:07,  7.41s/it, est. speed input: 10.12 toks/s, output: 335.51 toks/s][A
+Processed prompts:  19%|█▉        | 19/100 [02:12<09:32,  7.07s/it, est. speed input: 10.14 toks/s, output: 349.50 toks/s][A
+Processed prompts:  20%|██        | 20/100 [02:48<21:05, 15.82s/it, est. speed input: 8.29 toks/s, output: 302.48 toks/s] [A
+Processed prompts:  21%|██        | 21/100 [02:51<15:57, 12.12s/it, est. speed input: 8.39 toks/s, output: 324.40 toks/s][A
+Processed prompts:  22%|██▏       | 22/100 [03:05<16:21, 12.58s/it, est. speed input: 8.10 toks/s, output: 328.01 toks/s][A
+Processed prompts:  23%|██▎       | 23/100 [03:26<19:16, 15.01s/it, est. speed input: 7.87 toks/s, output: 322.12 toks/s][A
+Processed prompts:  24%|██▍       | 24/100 [04:31<38:19, 30.25s/it, est. speed input: 6.17 toks/s, output: 269.59 toks/s][A
+Processed prompts:  25%|██▌       | 25/100 [05:14<42:17, 33.84s/it, est. speed input: 5.46 toks/s, output: 258.09 toks/s][A
+Processed prompts:  26%|██▌       | 26/100 [05:51<43:06, 34.95s/it, est. speed input: 5.06 toks/s, output: 254.46 toks/s][A
+Processed prompts:  27%|██▋       | 27/100 [06:04<34:29, 28.35s/it, est. speed input: 5.25 toks/s, output: 269.13 toks/s][A
+Processed prompts:  28%|██▊       | 28/100 [06:41<37:17, 31.07s/it, est. speed input: 4.98 toks/s, output: 267.17 toks/s][A
+Processed prompts:  29%|██▉       | 29/100 [07:36<45:06, 38.13s/it, est. speed input: 4.50 toks/s, output: 257.49 toks/s][A
+Processed prompts:  30%|███       | 30/100 [13:05<2:26:25, 125.51s/it, est. speed input: 2.90 toks/s, output: 167.88 toks/s][A
+Processed prompts:  31%|███       | 31/100 [14:30<2:10:05, 113.12s/it, est. speed input: 2.67 toks/s, output: 169.23 toks/s][A
+Processed prompts:  32%|███▏      | 32/100 [28:28<6:14:49, 330.73s/it, est. speed input: 1.51 toks/s, output: 99.95 toks/s] [A
+Processed prompts:  33%|███▎      | 33/100 [32:03<5:30:21, 295.84s/it, est. speed input: 1.37 toks/s, output: 101.96 toks/s][A
+Processed prompts:  34%|███▍      | 34/100 [39:49<6:21:44, 347.04s/it, est. speed input: 1.13 toks/s, output: 94.03 toks/s] [A
+Processed prompts:  35%|███▌      | 35/100 [46:26<6:32:18, 362.13s/it, est. speed input: 1.01 toks/s, output: 91.82 toks/s][A
+Processed prompts:  36%|███▌      | 36/100 [46:45<4:36:23, 259.12s/it, est. speed input: 1.04 toks/s, output: 102.36 toks/s][A
+Processed prompts:  37%|███▋      | 37/100 [50:35<4:22:44, 250.23s/it, est. speed input: 1.08 toks/s, output: 105.42 toks/s][AProcessed prompts: 100%|██████████| 100/100 [50:35<00:00, 30.35s/it, est. speed input: 3.06 toks/s, output: 785.56 toks/s]  
+Splits: 100%|██████████| 1/1 [50:36<00:00, 3036.65s/it]Splits: 100%|██████████| 1/1 [50:36<00:00, 3036.65s/it]
+|      Task       |Version|     Metric     |Value|   |Stderr|
+|-----------------|------:|----------------|----:|---|-----:|
+|all              |       |extractive_match| 0.44|±  |0.0499|
+|custom:math_500:0|      1|extractive_match| 0.44|±  |0.0499|
+
+Evaluation results saved at ./outputs/replicates/awq3_s43/MATH-500.jsonl.

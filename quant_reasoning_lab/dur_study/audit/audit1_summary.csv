@@ -1,0 +1,10 @@
+config,subset,n,scorer_correct,think_closed,answer_complete,final_correct,scorer_correct_and_not_closed,scorer_correct_and_closed_no_complete_answer,scorer_correct_and_final_correct,scorer_correct_and_final_wrong,final_correct_but_scorer_wrong
+awq3,all,400,162,124,118,102,60,0,102,60,0
+awq3,exhausted,268,53,8,4,0,53,0,0,53,0
+awq3,not_exhausted,132,109,116,114,102,7,0,102,7,0
+awq3_pen,all,100,51,62,61,47,4,0,47,4,0
+awq3_pen,exhausted,35,3,1,0,0,3,0,0,3,0
+awq3_pen,not_exhausted,65,48,61,61,47,1,0,47,1,0
+bf16,all,400,322,386,385,322,0,0,322,0,0
+bf16,exhausted,15,0,1,0,0,0,0,0,0,0
+bf16,not_exhausted,385,322,385,385,322,0,0,322,0,0

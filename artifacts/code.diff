@@ -1,0 +1,385 @@
+diff --git a/inference.py b/inference.py
+index 7440d80..9c933dc 100644
+--- a/inference.py
++++ b/inference.py
+@@ -1,7 +1,9 @@
+ import os
+ import json
++import time
+ import random
+ import argparse
++import sys
+ from tqdm import tqdm
+ 
+ import torch
+@@ -10,8 +12,9 @@ from vllm import LLM
+ from vllm.engine.arg_utils import PoolerConfig
+ 
+ from lighteval.models.model_input import GenerationParameters
+-from lighteval_custom.models.vllm.vllm_model import VLLMModelConfig
++from lighteval_custom.models.vllm.vllm_model import VLLMModelConfig, GENERATION_META
+ from lighteval_custom.main_vllm import vllm
++from penalty.marker_penalty import load_marker_token_ids
+ from vllm_custom.model_executor.fake_quantized_models.registry import register_fake_quantized_models
+ register_fake_quantized_models()    # register fake-quantized models in vLLM
+ 
+@@ -40,7 +43,11 @@ def parser_gen():
+     parser.add_argument('--max_new_tokens', type=int, default=32768,
+                         help='Maximum number of tokens to generate per output sequence.')
+     parser.add_argument('--max_model_length', type=int, default=32768,
+-                        help='Maximum model input length.')
++                        help='Maximum model input length (must cover prompt + max_new_tokens).')
++    # marker penalty (raw-logit subtraction on a token set, see penalty/marker_penalty.py)
++    parser.add_argument('--marker_lambda', type=float, default=None,
++                        help='lambda of the marker penalty; None disables the logits processor. 0 = processor active but no-op.')
++    parser.add_argument('--marker_token_file', type=str, default='penalty/qwen_marker_token_ids.json')
+     args = parser.parse_args()
+ 
+     # force float16 for gptqmodel inference
+@@ -131,6 +138,10 @@ def main(args):
+         enable_chunked_prefill=False,
+         generation_parameters=generation_parameters,
+         init_model=(args.load_responses_from_json_file is None),
++        marker_penalty=None if args.marker_lambda is None else {
++            "lambda": args.marker_lambda,
++            "token_ids": load_marker_token_ids(args.marker_token_file),
++        },
+     )
+ 
+     if args.dataset == "AIME-2024":
+@@ -189,6 +200,7 @@ def main(args):
+             print(dataset_ppl)
+         return
+ 
++    t0 = time.time()
+     results, details = vllm(
+         model_config=model_config,
+         use_chat_template=True,
+@@ -198,19 +210,49 @@ def main(args):
+         **task_kwargs,
+     )
+ 
+-    # save evaluation results
++    wall_time_s = time.time() - t0
++
++    # save evaluation results (original 4 fields kept; extra fields appended)
+     eval_results = []
+     task_name = list(details.keys())[0]
+-    for detail in details[task_name]:
+-        eval_results.append({
++    problem2id = {}
++    if args.dataset == "MATH-500":
++        with open("./datasets/MATH-500/test.jsonl") as f:
++            for line in f:
++                row = json.loads(line)
++                problem2id[row["problem"]] = row["unique_id"]
++    have_meta = args.load_responses_from_json_file is None and len(GENERATION_META) == len(details[task_name])
++    for i, detail in enumerate(details[task_name]):
++        item = {
+             "full_prompt": detail["full_prompt"],
+             "generated_text": detail["predictions"][0],
+             "gold": detail["gold"],
+             "metrics": detail["metrics"]
+-        })
++        }
++        if have_meta:
++            meta = GENERATION_META[i]
++            n_gen = len(detail["cont_tokens"][0][0])   # cont_tokens = [[token_ids]]
++            assert n_gen == meta["num_generated_tokens"], "generation metadata misaligned with details"
++            item.update({
++                "task_id": next((v for k, v in problem2id.items() if k in detail["full_prompt"]), None),
++                "num_input_tokens": meta["num_input_tokens"],
++                "num_generated_tokens": n_gen,
++                "score": detail["metrics"].get("extractive_match"),
++                "finish_reason": meta["finish_reason"],      # "stop" (EOS) or "length" (budget/model-length exhausted)
++                "stop_reason": meta["stop_reason"],
++                "budget_exhausted": meta["finish_reason"] == "length",
++                "request_latency_s": meta["request_latency_s"],
++            })
++        eval_results.append(item)
+     if not args.debug and args.load_responses_from_json_file is None:
+         with open(args.output_path, "w") as f:
+-            json.dump(eval_results, f, indent=4)
++            json.dump(eval_results, f, indent=4)    # NOTE: a JSON array despite the .jsonl suffix
++        run_config = {k: v for k, v in vars(args).items()}
++        run_config.update({"wall_time_s": wall_time_s, "command": " ".join(sys.argv),
++                           "num_questions": len(eval_results),
++                           "marker_token_ids": model_config.marker_penalty and model_config.marker_penalty["token_ids"]})
++        with open(args.output_path.replace(".jsonl", ".run_config.json"), "w") as f:
++            json.dump(run_config, f, indent=2)
+         print(f"Evaluation results saved at {args.output_path}.")
+ 
+ 
+diff --git a/lighteval_custom/models/vllm/vllm_model.py b/lighteval_custom/models/vllm/vllm_model.py
+index 3ef3d49..9b8cd75 100644
+--- a/lighteval_custom/models/vllm/vllm_model.py
++++ b/lighteval_custom/models/vllm/vllm_model.py
+@@ -72,6 +72,9 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
+ 
+ STARTING_BATCH_SIZE = 512
+ 
++# Per-request generation metadata of the last greedy_until call (original request order).
++GENERATION_META: list = []
++
+ 
+ @dataclass
+ class VLLMModelConfig:
+@@ -97,6 +100,7 @@ class VLLMModelConfig:
+     enable_prefix_caching: bool = None
+     enable_chunked_prefill: bool = None
+     init_model: bool = None
++    marker_penalty: Optional[dict] = None  # {"lambda": float, "token_ids": list[int]}; None = no penalty
+ 
+     subfolder: Optional[str] = None
+ 
+@@ -235,6 +239,7 @@ class VLLMModel(LightevalModel):
+ 
+         dataset = GenerativeTaskDataset(requests=requests, num_dataset_splits=self.DATASET_SPLITS)
+         results = []
++        metas = []
+ 
+         for _ in tqdm(
+             dataset.splits_start_end_iterator(),
+@@ -310,7 +315,16 @@ class VLLMModel(LightevalModel):
+                     input_tokens=input_token_ids,
+                 )
+                 results.append(cur_response)
+-
++                m = vllm_output.metrics
++                metas.append({
++                    "finish_reason": vllm_output.outputs[0].finish_reason,
++                    "stop_reason": vllm_output.outputs[0].stop_reason,
++                    "num_input_tokens": len(input_token_ids),
++                    "num_generated_tokens": len(output_token_ids[0]),
++                    "request_latency_s": (m.finished_time - m.arrival_time) if m is not None and m.finished_time else None,
++                })
++
++        GENERATION_META[:] = dataset.get_original_order(metas)
+         return dataset.get_original_order(results)
+ 
+     def _generate(
+@@ -330,6 +344,10 @@ class VLLMModel(LightevalModel):
+             sampling_params.max_tokens = max_new_tokens
+             sampling_params.stop = stop_tokens
+             sampling_params.logprobs = 1 if returns_logits else 0
++            mp = self._config.marker_penalty
++            if mp is not None:
++                from penalty.marker_penalty import MarkerPenaltyProcessor
++                sampling_params.logits_processors = [MarkerPenaltyProcessor(mp["token_ids"], mp["lambda"])]
+ 
+         else:
+             sampling_params.temperature = 0
+diff --git a/penalty/build_qwen_marker_ids.py b/penalty/build_qwen_marker_ids.py
+new file mode 100644
+index 0000000..2ae6ce0
+--- /dev/null
++++ b/penalty/build_qwen_marker_ids.py
+@@ -0,0 +1,27 @@
++"""Map the 50 overthinking markers of paper Appendix C (Table 8) to token IDs of the
++DeepSeek-R1-Distill-Qwen tokenizer. Every marker carries a leading space ("_" in the paper)
++and must encode to exactly ONE token; otherwise it is reported and excluded (never guessed)."""
++import json
++import sys
++
++from transformers import AutoTokenizer
++
++MARKERS = ("perhaps maybe wait Wait actually hold Hmm hmm Alternatively alternatively However however "
++           "instead Instead But but though although yet rather unless otherwise nonetheless nevertheless "
++           "regardless still anyway Or or either whether uncertain unsure possibly might could another "
++           "different reconsider rethink backtrack retry recheck revisit doubt confused wrong mistake "
++           "error incorrect").split()
++assert len(MARKERS) == 50 and len(set(MARKERS)) == 50
++
++model, out = sys.argv[1], sys.argv[2]
++tok = AutoTokenizer.from_pretrained(model)
++mapping, missing = {}, {}
++for m in MARKERS:
++    ids = tok.encode(" " + m, add_special_tokens=False)
++    if len(ids) == 1 and tok.decode(ids) == " " + m:
++        mapping[" " + m] = ids[0]
++    else:
++        missing[" " + m] = {"ids": ids, "pieces": tok.convert_ids_to_tokens(ids)}
++json.dump({"tokenizer": model, "n_paper_markers": len(MARKERS), "n_single_token": len(mapping),
++           "token_ids": mapping, "not_single_token": missing}, open(out, "w"), indent=1)
++print(len(mapping), "single-token markers;", "multi-token:", missing)
+diff --git a/penalty/marker_penalty.py b/penalty/marker_penalty.py
+new file mode 100644
+index 0000000..4c939e5
+--- /dev/null
++++ b/penalty/marker_penalty.py
+@@ -0,0 +1,33 @@
++"""Marker penalty as a per-request vLLM logits processor (no vLLM patch).
++
++z'(v) = z(v) - lambda  for v in marker token set, unchanged otherwise (paper Eq. 1).
++
++Order in vLLM 0.7.0 (V0 engine, third-party/vllm):
++  LogitsProcessor.forward -> _apply_logits_processors (this class; RAW model logits)  [logits_processor.py:80]
++  Sampler.forward         -> temperature division [sampler.py:271] -> top-p/top-k [sampler.py:274]
++                             -> softmax -> sampling
++i.e. the penalty is applied to raw (pre-temperature) logits, before temperature and top-p.
++Note: raw logits are in the model dtype (bf16), so the subtraction is rounded to bf16 resolution.
++"""
++import json
++
++import torch
++
++
++def load_marker_token_ids(path):
++    with open(path) as f:
++        return sorted(set(json.load(f)["token_ids"].values()))
++
++
++class MarkerPenaltyProcessor:
++    def __init__(self, token_ids, penalty):
++        self.token_ids = list(token_ids)
++        self.penalty = float(penalty)
++        self._idx = {}
++
++    def __call__(self, past_token_ids, logits):
++        idx = self._idx.get(logits.device)
++        if idx is None:
++            idx = self._idx[logits.device] = torch.tensor(self.token_ids, dtype=torch.long, device=logits.device)
++        logits[idx] -= self.penalty
++        return logits
+diff --git a/penalty/qwen_marker_token_ids.json b/penalty/qwen_marker_token_ids.json
+new file mode 100644
+index 0000000..c9890fe
+--- /dev/null
++++ b/penalty/qwen_marker_token_ids.json
+@@ -0,0 +1,68 @@
++{
++ "tokenizer": "./modelzoo/DeepSeek-R1/DeepSeek-R1-Distill-Qwen-1.5B",
++ "n_paper_markers": 50,
++ "n_single_token": 49,
++ "token_ids": {
++  " perhaps": 8365,
++  " maybe": 7196,
++  " wait": 3783,
++  " Wait": 13824,
++  " actually": 3520,
++  " hold": 3331,
++  " Hmm": 88190,
++  " hmm": 87501,
++  " Alternatively": 38478,
++  " alternatively": 68387,
++  " However": 4354,
++  " however": 4764,
++  " instead": 4518,
++  " Instead": 12090,
++  " But": 1988,
++  " but": 714,
++  " though": 3498,
++  " although": 7892,
++  " yet": 3602,
++  " rather": 4751,
++  " unless": 7241,
++  " otherwise": 5937,
++  " nonetheless": 37813,
++  " nevertheless": 37230,
++  " regardless": 15484,
++  " still": 2058,
++  " anyway": 13657,
++  " Or": 2521,
++  " or": 476,
++  " either": 2987,
++  " whether": 3425,
++  " uncertain": 35118,
++  " unsure": 42903,
++  " possibly": 10767,
++  " might": 2578,
++  " could": 1410,
++  " another": 2441,
++  " different": 2155,
++  " reconsider": 39075,
++  " rethink": 75655,
++  " backtrack": 98921,
++  " retry": 22683,
++  " revisit": 64778,
++  " doubt": 10492,
++  " confused": 21815,
++  " wrong": 4969,
++  " mistake": 16523,
++  " error": 1465,
++  " incorrect": 15114
++ },
++ "not_single_token": {
++  " recheck": {
++   "ids": [
++    312,
++    2028
++   ],
++   "pieces": [
++    "\u0120re",
++    "check"
++   ]
++  }
++ }
++}
+\ No newline at end of file
+diff --git a/penalty/test_marker_penalty.py b/penalty/test_marker_penalty.py
+new file mode 100644
+index 0000000..95830ff
+--- /dev/null
++++ b/penalty/test_marker_penalty.py
+@@ -0,0 +1,61 @@
++"""Checks of the marker penalty on the real vLLM 0.7.0 path (first decoding step, fixed prompt/prefix).
++(1) lambda=0 is bit-identical to no processor; (2) only marker tokens change, by exactly -lambda/T in the
++reported (post-temperature) logprob space => penalty is applied to RAW logits BEFORE temperature scaling;
++(3) negative lambda boosts. Also pure-torch unit test of the processor."""
++import json, sys, torch
++from vllm import LLM, SamplingParams
++from penalty.marker_penalty import MarkerPenaltyProcessor, load_marker_token_ids
++
++ids = load_marker_token_ids("penalty/qwen_marker_token_ids.json")
++S = set(ids)
++
++# --- pure torch unit test (fixed logits)
++for dt, tol in ((torch.float32, 1e-5), (torch.bfloat16, 0.0625)):
++    z = torch.randn(151936, dtype=dt, device="cuda") * 5
++    for lam in (0.0, 1.0, -2.0, 0.7):
++        out = MarkerPenaltyProcessor(ids, lam)([], z.clone())
++        diff = out.float() - z.float()
++        changed = set(diff.nonzero().flatten().tolist())
++        if lam == 0.0:
++            assert not changed, "lambda=0 must be exact identity"
++        else:
++            assert changed <= S and len(changed) > 0
++            err = (diff[ids] + lam).abs().max().item()
++            assert err <= tol, (dt, lam, err)
++            print(f"  unit {dt} lambda={lam}: only marker ids changed ({len(changed)}/{len(S)}); max |shift+lambda|={err:.4f}")
++        others = torch.ones(z.numel(), dtype=torch.bool, device="cuda"); others[ids] = False
++        assert torch.equal(out[others], z[others]), "non-marker logits modified"
++print("torch unit test OK")
++
++model = "modelzoo/DeepSeek-R1/DeepSeek-R1-Distill-Qwen-1.5B"
++llm = LLM(model, dtype="bfloat16", max_model_len=4096, enforce_eager=True, gpu_memory_utilization=0.5, max_logprobs=2000)
++tok = llm.get_tokenizer()
++prompt = ("<｜begin▁of▁sentence｜><｜User｜>What is 2+3? Please reason step by step, and put your final answer within \\boxed{}."
++          "<｜Assistant｜><think>\nI think 2+3=5. So the answer is 5.")
++res = {}
++for T in (1.0, 0.6):
++    for lam in (None, 0.0, 1.0, -2.0):
++        lp = [] if lam is None else [MarkerPenaltyProcessor(ids, lam)]
++        sp = SamplingParams(temperature=T, top_p=1.0, max_tokens=1, logprobs=2000, seed=42, logits_processors=lp)
++        o = llm.generate([prompt], sp, use_tqdm=False)[0].outputs[0]
++        res[(T, lam)] = ({t: l.logprob for t, l in o.logprobs[0].items()}, o.token_ids[0])
++for T in (1.0, 0.6):
++    base, b_tok = res[(T, None)]
++    zero, z_tok = res[(T, 0.0)]
++    assert base == zero and b_tok == z_tok, "lambda=0 differs from baseline"
++    print(f"T={T}: lambda=0 logprobs identical to no-processor over {len(base)} tokens; sampled token equal")
++    for lam in (1.0, -2.0):
++        pen, _ = res[(T, lam)]
++        common = [t for t in base if t in pen]
++        nm = [t for t in common if t not in S]
++        mk = [t for t in common if t in S]
++        ref = nm[0]
++        # relative logit shift vs a non-marker reference token, expressed in raw-logit units (multiply by T)
++        non_marker_dev = max(abs((pen[t] - pen[ref]) - (base[t] - base[ref])) for t in nm)
++        shifts = [((pen[t] - pen[ref]) - (base[t] - base[ref])) * T for t in mk]
++        print(f"  lambda={lam}: {len(nm)} non-marker / {len(mk)} marker tokens compared; "
++              f"max |non-marker relative change|={non_marker_dev:.2e}; "
++              f"marker raw-logit shifts min/max={min(shifts):.4f}/{max(shifts):.4f} (expected {-lam})")
++        assert non_marker_dev < 1e-4 and all(abs(s + lam) < 0.13 for s in shifts), 'bf16 raw-logit rounding bound exceeded'
++        print(f'    max |shift+lambda| = {max(abs(s + lam) for s in shifts):.4f} (bf16 rounding of raw logits)')
++print("ALL CHECKS PASSED")

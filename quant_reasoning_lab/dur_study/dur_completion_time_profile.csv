@@ -1,0 +1,11 @@
+,fraction_of_runs
+DB_complete_by_32,0.0
+DB_complete_by_256,0.0
+DB_complete_by_1024,0.1875
+DB_complete_by_2048,0.5833333333333334
+DB_complete_by_4096,0.8020833333333334
+D0_complete_by_32,0.0
+D0_complete_by_256,0.0
+D0_complete_by_1024,0.08333333333333333
+D0_complete_by_2048,0.1875
+D0_complete_by_4096,0.2708333333333333

@@ -1,0 +1,428 @@
+{
+ "361d491b79": {
+  "traj_id": "bf16_s42_test/intermediate_algebra/776.json",
+  "start": 234,
+  "end": 244,
+  "stratum": "late_repeat_no_correct",
+  "config": "bf16"
+ },
+ "06dcd0b888": {
+  "traj_id": "bf16_s42_test/algebra/892.json",
+  "start": 21,
+  "end": 31,
+  "stratum": "after_correct_not_repeating",
+  "config": "bf16"
+ },
+ "a6b0572029": {
+  "traj_id": "bf16_s44_test/algebra/1787.json",
+  "start": 257,
+  "end": 267,
+  "stratum": "after_correct_repeating",
+  "config": "bf16"
+ },
+ "d90ffe21a8": {
+  "traj_id": "awq3_s44_test/algebra/1787.json",
+  "start": 84,
+  "end": 94,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3"
+ },
+ "6f8eeab5d4": {
+  "traj_id": "awq3_s42_test/number_theory/515.json",
+  "start": 66,
+  "end": 76,
+  "stratum": "after_correct_not_repeating",
+  "config": "awq3"
+ },
+ "f95e40ac80": {
+  "traj_id": "awq3_s45_test/geometry/880.json",
+  "start": 434,
+  "end": 444,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3"
+ },
+ "0c01348166": {
+  "traj_id": "bf16_s44_test/precalculus/742.json",
+  "start": 274,
+  "end": 284,
+  "stratum": "after_correct_repeating",
+  "config": "bf16"
+ },
+ "4a857d59ed": {
+  "traj_id": "bf16_s44_test/number_theory/417.json",
+  "start": 206,
+  "end": 216,
+  "stratum": "after_correct_repeating",
+  "config": "bf16"
+ },
+ "33be0df446": {
+  "traj_id": "bf16_s43_test/geometry/1140.json",
+  "start": 283,
+  "end": 293,
+  "stratum": "after_correct_repeating",
+  "config": "bf16"
+ },
+ "464d975958": {
+  "traj_id": "awq3_s43_test/number_theory/1055.json",
+  "start": 14,
+  "end": 24,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "awq3"
+ },
+ "24399e76fb": {
+  "traj_id": "bf16_s44_test/prealgebra/631.json",
+  "start": 262,
+  "end": 272,
+  "stratum": "after_correct_repeating",
+  "config": "bf16"
+ },
+ "787dfa12df": {
+  "traj_id": "awq3_s42_test/intermediate_algebra/199.json",
+  "start": 209,
+  "end": 219,
+  "stratum": "after_correct_repeating",
+  "config": "awq3"
+ },
+ "0a67237f14": {
+  "traj_id": "awq3_s44_test/precalculus/927.json",
+  "start": 66,
+  "end": 76,
+  "stratum": "after_correct_not_repeating",
+  "config": "awq3"
+ },
+ "875ac89b95": {
+  "traj_id": "awq3_s43_test/prealgebra/1907.json",
+  "start": 203,
+  "end": 213,
+  "stratum": "after_correct_repeating",
+  "config": "awq3"
+ },
+ "2bbd3a5d83": {
+  "traj_id": "awq3_s44_test/intermediate_algebra/128.json",
+  "start": 164,
+  "end": 174,
+  "stratum": "after_correct_repeating",
+  "config": "awq3"
+ },
+ "8b2de30d11": {
+  "traj_id": "bf16_s44_test/intermediate_algebra/128.json",
+  "start": 214,
+  "end": 224,
+  "stratum": "after_correct_repeating",
+  "config": "bf16"
+ },
+ "ed5697352c": {
+  "traj_id": "bf16_s44_test/geometry/965.json",
+  "start": 54,
+  "end": 64,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "bf16"
+ },
+ "812b05972b": {
+  "traj_id": "awq3_s42_test/number_theory/1055.json",
+  "start": 264,
+  "end": 274,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3",
+  "filled": true
+ },
+ "e9083d7cf9": {
+  "traj_id": "awq3_s44_test/algebra/892.json",
+  "start": 104,
+  "end": 114,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3"
+ },
+ "e46c6dd4f4": {
+  "traj_id": "awq3_s45_test/geometry/967.json",
+  "start": 73,
+  "end": 83,
+  "stratum": "after_correct_not_repeating",
+  "config": "awq3"
+ },
+ "fad758e66e": {
+  "traj_id": "awq3_s43_test/precalculus/24313.json",
+  "start": 14,
+  "end": 24,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "awq3"
+ },
+ "c945660583": {
+  "traj_id": "bf16_s42_test/precalculus/801.json",
+  "start": 54,
+  "end": 64,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "bf16"
+ },
+ "679f3f8b06": {
+  "traj_id": "awq3_s42_test/number_theory/183.json",
+  "start": 174,
+  "end": 184,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3"
+ },
+ "dc8d9db099": {
+  "traj_id": "bf16_s44_test/intermediate_algebra/128.json",
+  "start": 74,
+  "end": 84,
+  "stratum": "after_correct_not_repeating",
+  "config": "bf16"
+ },
+ "4c7805d4bf": {
+  "traj_id": "bf16_s44_test/precalculus/801.json",
+  "start": 202,
+  "end": 212,
+  "stratum": "after_correct_repeating",
+  "config": "bf16"
+ },
+ "0ff7b637cc": {
+  "traj_id": "awq3_s44_test/prealgebra/1187.json",
+  "start": 164,
+  "end": 174,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3"
+ },
+ "d61147ebec": {
+  "traj_id": "awq3_s43_test/precalculus/697.json",
+  "start": 404,
+  "end": 414,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3",
+  "filled": true
+ },
+ "f2691d091d": {
+  "traj_id": "awq3_s45_test/intermediate_algebra/860.json",
+  "start": 504,
+  "end": 514,
+  "stratum": "after_correct_repeating",
+  "config": "awq3"
+ },
+ "58045860ce": {
+  "traj_id": "awq3_s44_test/intermediate_algebra/607.json",
+  "start": 114,
+  "end": 124,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "awq3"
+ },
+ "dd3e95e550": {
+  "traj_id": "awq3_s45_test/geometry/1140.json",
+  "start": 112,
+  "end": 122,
+  "stratum": "after_correct_not_repeating",
+  "config": "awq3"
+ },
+ "85e2ad096c": {
+  "traj_id": "awq3_s44_test/algebra/1349.json",
+  "start": 73,
+  "end": 83,
+  "stratum": "after_correct_not_repeating",
+  "config": "awq3"
+ },
+ "ec3d1b6c60": {
+  "traj_id": "bf16_s43_test/number_theory/417.json",
+  "start": 28,
+  "end": 38,
+  "stratum": "after_correct_not_repeating",
+  "config": "bf16"
+ },
+ "6209cc34a9": {
+  "traj_id": "bf16_s43_test/prealgebra/1646.json",
+  "start": 64,
+  "end": 74,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "bf16"
+ },
+ "5a7e63126d": {
+  "traj_id": "awq3_s42_test/prealgebra/1646.json",
+  "start": 164,
+  "end": 174,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3",
+  "filled": true
+ },
+ "f839ce1ebd": {
+  "traj_id": "bf16_s42_test/precalculus/398.json",
+  "start": 43,
+  "end": 53,
+  "stratum": "after_correct_not_repeating",
+  "config": "bf16"
+ },
+ "c0714f99c0": {
+  "traj_id": "bf16_s45_test/prealgebra/1187.json",
+  "start": 72,
+  "end": 82,
+  "stratum": "after_correct_not_repeating",
+  "config": "bf16"
+ },
+ "99308fff70": {
+  "traj_id": "awq3_s45_test/geometry/627.json",
+  "start": 378,
+  "end": 388,
+  "stratum": "after_correct_repeating",
+  "config": "awq3"
+ },
+ "60a062a614": {
+  "traj_id": "awq3_s42_test/prealgebra/1555.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "after_correct_not_repeating",
+  "config": "awq3"
+ },
+ "937611f2a0": {
+  "traj_id": "awq3_s43_test/geometry/965.json",
+  "start": 124,
+  "end": 134,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "awq3"
+ },
+ "9dd7957448": {
+  "traj_id": "awq3_s44_test/precalculus/1105.json",
+  "start": 27,
+  "end": 37,
+  "stratum": "after_correct_not_repeating",
+  "config": "awq3"
+ },
+ "f578daed8d": {
+  "traj_id": "bf16_s45_test/prealgebra/1646.json",
+  "start": 92,
+  "end": 102,
+  "stratum": "after_correct_not_repeating",
+  "config": "bf16"
+ },
+ "ac3848c7b0": {
+  "traj_id": "bf16_s42_test/precalculus/117.json",
+  "start": 244,
+  "end": 254,
+  "stratum": "after_correct_not_repeating",
+  "config": "bf16"
+ },
+ "a048b42f3e": {
+  "traj_id": "bf16_s45_test/number_theory/769.json",
+  "start": 11,
+  "end": 21,
+  "stratum": "after_correct_not_repeating",
+  "config": "bf16"
+ },
+ "e8329a5c70": {
+  "traj_id": "awq3_s44_test/prealgebra/631.json",
+  "start": 568,
+  "end": 578,
+  "stratum": "after_correct_repeating",
+  "config": "awq3"
+ },
+ "daa04a4927": {
+  "traj_id": "bf16_s45_test/intermediate_algebra/199.json",
+  "start": 349,
+  "end": 359,
+  "stratum": "after_correct_repeating",
+  "config": "bf16"
+ },
+ "5985234d90": {
+  "traj_id": "awq3_s43_test/intermediate_algebra/446.json",
+  "start": 14,
+  "end": 24,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "awq3"
+ },
+ "ecccf44d76": {
+  "traj_id": "bf16_s45_test/geometry/880.json",
+  "start": 24,
+  "end": 34,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "bf16"
+ },
+ "65f72d8d84": {
+  "traj_id": "awq3_s44_test/geometry/178.json",
+  "start": 444,
+  "end": 454,
+  "stratum": "after_correct_repeating",
+  "config": "awq3"
+ },
+ "0336d06040": {
+  "traj_id": "awq3_s43_test/precalculus/24313.json",
+  "start": 284,
+  "end": 294,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3",
+  "filled": true
+ },
+ "6c70827a3a": {
+  "traj_id": "bf16_s42_test/geometry/183.json",
+  "start": 474,
+  "end": 484,
+  "stratum": "late_repeat_no_correct",
+  "config": "bf16"
+ },
+ "126fe085e5": {
+  "traj_id": "awq3_s43_test/precalculus/145.json",
+  "start": 384,
+  "end": 394,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3"
+ },
+ "ec6d557ee3": {
+  "traj_id": "bf16_s43_test/intermediate_algebra/1197.json",
+  "start": 134,
+  "end": 144,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "bf16"
+ },
+ "9862c5d175": {
+  "traj_id": "awq3_s45_test/intermediate_algebra/1197.json",
+  "start": 134,
+  "end": 144,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3",
+  "filled": true
+ },
+ "3c9a252223": {
+  "traj_id": "awq3_s43_test/intermediate_algebra/183.json",
+  "start": 464,
+  "end": 474,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3",
+  "filled": true
+ },
+ "77fff60eb3": {
+  "traj_id": "bf16_s45_test/intermediate_algebra/102.json",
+  "start": 104,
+  "end": 114,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "bf16"
+ },
+ "e2db8238bd": {
+  "traj_id": "bf16_s45_test/precalculus/697.json",
+  "start": 94,
+  "end": 104,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "bf16"
+ },
+ "c8f030381d": {
+  "traj_id": "awq3_s42_test/geometry/65.json",
+  "start": 264,
+  "end": 274,
+  "stratum": "late_repeat_no_correct",
+  "config": "awq3"
+ },
+ "1a131c55f3": {
+  "traj_id": "awq3_s43_test/algebra/892.json",
+  "start": 44,
+  "end": 54,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "awq3"
+ },
+ "d5b904f689": {
+  "traj_id": "bf16_s43_test/precalculus/1133.json",
+  "start": 24,
+  "end": 34,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "bf16"
+ },
+ "3a7354405d": {
+  "traj_id": "awq3_s43_test/intermediate_algebra/1197.json",
+  "start": 44,
+  "end": 54,
+  "stratum": "mid_reasoning_no_candidates",
+  "config": "awq3"
+ }
+}

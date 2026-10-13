@@ -1,0 +1,9 @@
+bf947e29f52e3f666e3263efac149dae0ac18d00
+ 16335d087dd4f9cdc8933dd7a5681e4bf88311b6 third-party/AutoAWQ (v0.2.8)
+ b623b965cda5368c0e83aefaedd7388fc1a07d49 third-party/GPTQModel (v1.7.4)
+ f3dc2c60084cc076e6bb4122621a35cd0ebad4bc third-party/fast-hadamard-transform (v1.0.4)
+ eee93d7967a6b8c965960f4cada163635691b93e third-party/lighteval (v0.8.0)
+ ef175d7def225fa758bbc0f36b11f24084c60312 third-party/llm-compressor (0.5.1)
+ 5204ff5c3feeb96e8a6eea65dfcb78395f90d4d8 third-party/vllm (v0.7.0)
+ f3bc7a78e687f7987a920e7bad0dca61c927c5b4 third-party/xformers (v0.0.28.post3)
+vllm-overthinking-penalty (reference only, not used): 6aaea447c5c93ffb036017b42facc05c08aaaf27

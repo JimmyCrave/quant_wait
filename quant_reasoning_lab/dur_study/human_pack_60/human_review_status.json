@@ -1,0 +1,26 @@
+{
+ "n_windows": 60,
+ "n_steps": 600,
+ "n_human_reviewed_windows": 0,
+ "status": "NOT COMPLETED - no human has labelled these windows. Any model labels computed later are AUTOMATIC and must not be called human.",
+ "availability": {
+  "after_correct_repeating|bf16": 205,
+  "after_correct_repeating|awq3": 12704,
+  "after_correct_not_repeating|bf16": 1874,
+  "after_correct_not_repeating|awq3": 2794,
+  "mid_reasoning_no_candidates|bf16": 1041,
+  "mid_reasoning_no_candidates|awq3": 1334,
+  "late_repeat_no_correct|bf16": 25,
+  "late_repeat_no_correct|awq3": 3263
+ },
+ "strata": {
+  "late_repeat_no_correct|bf16": 2,
+  "after_correct_not_repeating|bf16": 8,
+  "after_correct_repeating|bf16": 8,
+  "late_repeat_no_correct|awq3": 13,
+  "after_correct_not_repeating|awq3": 7,
+  "mid_reasoning_no_candidates|awq3": 7,
+  "after_correct_repeating|awq3": 7,
+  "mid_reasoning_no_candidates|bf16": 8
+ }
+}

@@ -1,0 +1,3 @@
+config,think_tokens,penalised_markers_per1k,space_free_variants_per1k,recheck_two_token_occurrences
+bf16,2388801,12.700932392442903,9.59519022304495,5
+awq3,9706011,26.298033249704744,35.67160597695593,8

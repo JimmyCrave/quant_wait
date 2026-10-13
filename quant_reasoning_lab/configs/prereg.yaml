@@ -1,0 +1,20 @@
+# Fixed BEFORE any state-label / counterfactual / intervention results were inspected (2026-10-11).
+quantized_condition: awq3   # AWQ W3 g128 fake-quant; verified in stage 1 (artifacts/awq_weight_check.json). GPTQ3 NOT needed.
+models:
+  bf16: Quantized-Reasoning-Models/modelzoo/DeepSeek-R1/DeepSeek-R1-Distill-Qwen-1.5B
+  awq3: Quantized-Reasoning-Models/outputs/modelzoo/awq/DeepSeek-R1-Distill-Qwen-1.5B-awq-w3g128-tp1
+trajectory_sources:
+  seed42: artifacts/results/{bf16,awq3,awq3_lambda1.0}   # stage-1, no token ids saved -> retokenized
+  seeds_43_44_45: Quantized-Reasoning-Models/outputs/replicates/{bf16,awq3}_s{43,44,45}   # new, same 100 questions
+sampling: {temperature: 0.6, top_p: 0.95}
+question_split: {rule: "sorted task_id list shuffled with random.Random(20261011); first 50 = dev, last 50 = test", used_for: "dev: window-length sensitivity (8/64), B6 trigger design; all-question analyses use dev+test and are labelled"}
+segmentation: {unit: "paragraph (blank-line separated), consecutive paragraphs merged until >= 150 chars (never across </think>), added 2026-10-11 before any labelling because AWQ3 loops produce up to 9k tiny paragraphs; paragraphs > 700 chars are split at sentence boundaries into chunks <= 700 chars", reasoning_span: "tokens before </think> (id 151649)", answer_span: "after </think>"}
+candidate_detectors:
+  text_repetition: {word_shingle_n: 5, jaccard_threshold: 0.6, min_distance_steps: 1}
+  semantic_repetition: {embedder: bge-small-en-v1.5, cosine_threshold: 0.90, min_distance_steps: 2, extra_condition: "no new numbers/LaTeX tokens vs the 30 preceding steps"}
+high_confidence_labels: {L: "labeler L AND (text or semantic candidate)", G: "labeler G AND no candidate", rest: U_or_ambiguous}
+loop_event: ">= 2 consecutive L steps (entry = first L step of the run)"
+audit_windows: {n_min: 100, steps_per_window: 10, strata: [normal_G, repetition_candidate, valid_correction_candidate, near_end, near_answer], configs: [bf16, awq3], seed: 777}
+prefix_bank: {n_questions_min: 30, n_prefixes: "60-100", categories: [G, L, CA], max_new_tokens: 4096, sensitivity_max_new_tokens: 8192, sensitivity_subset: "sha1(prefix_id) % 4 == 0", seeds: [1,2,3]}
+bf16_correction: {window_tokens: 32, sensitivity: [8, 64], sensitivity_on: dev}
+conditions: {C0: quant, C1: quant+marker penalty lambda=1.0 whole continuation, C2: BF16 window before loop entry, C3: BF16 window inside loop, C4: BF16 window after first explicit correct answer, C5: BF16 window at random matched position}

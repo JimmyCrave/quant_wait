@@ -1,0 +1,68 @@
+{
+ "tokenizer": "./modelzoo/DeepSeek-R1/DeepSeek-R1-Distill-Qwen-1.5B",
+ "n_paper_markers": 50,
+ "n_single_token": 49,
+ "token_ids": {
+  " perhaps": 8365,
+  " maybe": 7196,
+  " wait": 3783,
+  " Wait": 13824,
+  " actually": 3520,
+  " hold": 3331,
+  " Hmm": 88190,
+  " hmm": 87501,
+  " Alternatively": 38478,
+  " alternatively": 68387,
+  " However": 4354,
+  " however": 4764,
+  " instead": 4518,
+  " Instead": 12090,
+  " But": 1988,
+  " but": 714,
+  " though": 3498,
+  " although": 7892,
+  " yet": 3602,
+  " rather": 4751,
+  " unless": 7241,
+  " otherwise": 5937,
+  " nonetheless": 37813,
+  " nevertheless": 37230,
+  " regardless": 15484,
+  " still": 2058,
+  " anyway": 13657,
+  " Or": 2521,
+  " or": 476,
+  " either": 2987,
+  " whether": 3425,
+  " uncertain": 35118,
+  " unsure": 42903,
+  " possibly": 10767,
+  " might": 2578,
+  " could": 1410,
+  " another": 2441,
+  " different": 2155,
+  " reconsider": 39075,
+  " rethink": 75655,
+  " backtrack": 98921,
+  " retry": 22683,
+  " revisit": 64778,
+  " doubt": 10492,
+  " confused": 21815,
+  " wrong": 4969,
+  " mistake": 16523,
+  " error": 1465,
+  " incorrect": 15114
+ },
+ "not_single_token": {
+  " recheck": {
+   "ids": [
+    312,
+    2028
+   ],
+   "pieces": [
+    "\u0120re",
+    "check"
+   ]
+  }
+ }
+}

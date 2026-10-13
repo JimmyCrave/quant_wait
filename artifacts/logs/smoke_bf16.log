@@ -1,0 +1,31 @@
+INFO 10-11 10:51:40 __init__.py:183] Automatically detected platform cuda.
+--max_samples WAS SET. THESE NUMBERS ARE ONLY PARTIAL AND SHOULD NOT BE USED FOR COMPARISON UNLESS YOU KNOW WHAT YOU ARE DOING.
+The model has a long context length (34816). This may cause OOM errors during the initial memory profiling phase, or result in low performance due to small KV cache space. Consider setting --max-model-len to a smaller value.
+To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+Async output processing is not supported on the current platform type cuda.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.02it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.02it/s]
+
+If you want to use extended_tasks, make sure you installed their dependencies using `pip install -e .[extended_tasks]`.
+Careful, the task custom|math_500 is using evaluation data to build the few shot examples.
+You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring.
+Splits:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed prompts:   0%|          | 0/10 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:  10%|█         | 1/10 [00:14<02:08, 14.26s/it, est. speed input: 3.37 toks/s, output: 69.54 toks/s][A
+Processed prompts:  20%|██        | 2/10 [00:17<01:03,  7.89s/it, est. speed input: 5.94 toks/s, output: 126.48 toks/s][A
+Processed prompts:  30%|███       | 3/10 [00:18<00:34,  4.88s/it, est. speed input: 8.58 toks/s, output: 188.45 toks/s][A
+Processed prompts:  40%|████      | 4/10 [00:27<00:37,  6.30s/it, est. speed input: 7.94 toks/s, output: 201.45 toks/s][A
+Processed prompts:  50%|█████     | 5/10 [00:29<00:23,  4.64s/it, est. speed input: 9.50 toks/s, output: 261.00 toks/s][A
+Processed prompts:  60%|██████    | 6/10 [00:33<00:18,  4.51s/it, est. speed input: 9.72 toks/s, output: 299.72 toks/s][A
+Processed prompts:  70%|███████   | 7/10 [00:40<00:15,  5.25s/it, est. speed input: 9.60 toks/s, output: 321.55 toks/s][A
+Processed prompts:  80%|████████  | 8/10 [01:27<00:37, 18.68s/it, est. speed input: 5.40 toks/s, output: 218.92 toks/s][A
+Processed prompts:  90%|█████████ | 9/10 [01:43<00:17, 17.93s/it, est. speed input: 4.98 toks/s, output: 256.00 toks/s][A
+Processed prompts: 100%|██████████| 10/10 [02:34<00:00, 28.09s/it, est. speed input: 4.73 toks/s, output: 245.76 toks/s][AProcessed prompts: 100%|██████████| 10/10 [02:34<00:00, 15.47s/it, est. speed input: 4.73 toks/s, output: 245.76 toks/s]
+Splits: 100%|██████████| 1/1 [02:34<00:00, 154.76s/it]Splits: 100%|██████████| 1/1 [02:34<00:00, 154.76s/it]
+|      Task       |Version|     Metric     |Value|   |Stderr|
+|-----------------|------:|----------------|----:|---|-----:|
+|all              |       |extractive_match|    1|±  |     0|
+|custom:math_500:0|      1|extractive_match|    1|±  |     0|
+
+Evaluation results saved at ./outputs/smoke/bf16/MATH-500.jsonl.

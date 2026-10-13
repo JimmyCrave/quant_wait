@@ -1,0 +1,11 @@
+
+vLLM model class: Qwen2ForCausalLM | quant_config: None
+model.layers.0.self_attn.qkv_proj.weight: equals AWQ checkpoint=True, equals BF16 original=False, max distinct values per 128-group=8
+model.layers.0.mlp.gate_up_proj.weight: equals AWQ checkpoint=True, equals BF16 original=False, max distinct values per 128-group=8
+model.layers.0.mlp.down_proj.weight: equals AWQ checkpoint=True, equals BF16 original=False, max distinct values per 128-group=8
+model.layers.13.self_attn.qkv_proj.weight: equals AWQ checkpoint=True, equals BF16 original=False, max distinct values per 128-group=8
+model.layers.13.mlp.gate_up_proj.weight: equals AWQ checkpoint=True, equals BF16 original=False, max distinct values per 128-group=8
+model.layers.13.mlp.down_proj.weight: equals AWQ checkpoint=True, equals BF16 original=False, max distinct values per 128-group=8
+model.layers.27.self_attn.qkv_proj.weight: equals AWQ checkpoint=True, equals BF16 original=False, max distinct values per 128-group=8
+model.layers.27.mlp.gate_up_proj.weight: equals AWQ checkpoint=True, equals BF16 original=False, max distinct values per 128-group=8
+model.layers.27.mlp.down_proj.weight: equals AWQ checkpoint=True, equals BF16 original=False, max distinct values per 128-group=8

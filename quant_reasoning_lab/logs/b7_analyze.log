@@ -1,0 +1,86 @@
+   group         arm           metric  mean_arm   mean_D0  diff_vs_D0     ci_lo    ci_hi  n_anchors  n_runs_arm
+0   main          DP          primary     0.531     0.240       0.292     0.156    0.427         32          96
+1   main          DP     think_closed     0.594     0.281       0.312     0.177    0.448         32          96
+3   main          DP        det_entry     0.271     0.365      -0.094    -0.208    0.010         32          96
+4   main          DP  len_to_complete  2978.354  3393.479    -415.125  -720.196  -94.759         32          96
+5   main          DB          primary     0.792     0.240       0.552     0.427    0.677         32          96
+6   main          DB     think_closed     0.823     0.281       0.542     0.417    0.667         32          96
+8   main          DB        det_entry     0.052     0.365      -0.312    -0.438   -0.198         32          96
+9   main          DB  len_to_complete  2139.260  3393.479   -1254.219 -1595.933 -911.738         32          96
+10  main         W32          primary     0.271     0.240       0.031    -0.052    0.125         32          96
+11  main         W32     think_closed     0.312     0.281       0.031    -0.052    0.135         32          96
+13  main         W32        det_entry     0.292     0.365      -0.073    -0.198    0.052         32          96
+14  main         W32  len_to_complete  3426.906  3393.479      33.427  -188.031  249.129         32          96
+15  main        W256          primary     0.333     0.240       0.094     0.010    0.188         32          96
+16  main        W256     think_closed     0.385     0.281       0.104     0.021    0.198         32          96
+18  main        W256        det_entry     0.271     0.365      -0.094    -0.177   -0.000         32          96
+19  main        W256  len_to_complete  3222.458  3393.479    -171.021  -424.525   61.198         32          96
+20  main       W1024          primary     0.594     0.240       0.354     0.219    0.500         32          96
+21  main       W1024     think_closed     0.615     0.281       0.333     0.198    0.479         32          96
+23  main       W1024        det_entry     0.156     0.365      -0.208    -0.354   -0.073         32          96
+24  main       W1024  len_to_complete  2488.198  3393.479    -905.281 -1291.196 -537.310         32          96
+25  main   W1024-W32          primary     0.594     0.271       0.323     0.208    0.438         32          96
+26  main   W1024-W32     think_closed     0.615     0.312       0.302     0.198    0.406         32          96
+28  main   W1024-W32        det_entry     0.156     0.292      -0.135    -0.260   -0.010         32          96
+29  main   W1024-W32  len_to_complete  2488.198  3426.906    -938.708 -1203.207 -678.569         32          96
+30  main  W1024-W256          primary     0.594     0.333       0.260     0.146    0.385         32          96
+31  main  W1024-W256     think_closed     0.615     0.385       0.229     0.125    0.344         32          96
+33  main  W1024-W256        det_entry     0.156     0.271      -0.115    -0.219   -0.021         32          96
+34  main  W1024-W256  len_to_complete  2488.198  3222.458    -734.260 -1045.360 -438.161         32          96
+35  main    W256-W32          primary     0.333     0.271       0.062    -0.010    0.135         32          96
+36  main    W256-W32     think_closed     0.385     0.312       0.073    -0.000    0.146         32          96
+38  main    W256-W32        det_entry     0.271     0.292      -0.021    -0.156    0.115         32          96
+39  main    W256-W32  len_to_complete  3222.458  3426.906    -204.448  -395.293   -6.254         32          96
+40  main    DB-W1024          primary     0.792     0.594       0.198     0.104    0.302         32          96
+41  main    DB-W1024     think_closed     0.823     0.615       0.208     0.104    0.323         32          96
+43  main    DB-W1024        det_entry     0.052     0.156      -0.104    -0.198   -0.010         32          96
+44  main    DB-W1024  len_to_complete  2139.260  2488.198    -348.938  -589.803 -104.693         32          96
+      arm                             cls   n  primary_correct  frac_of_arm_runs  n_arm_runs
+0      D0                        complete  26               23             0.271          96
+1      D0                incomplete_other  36                0             0.375          96
+2      D0               repeat_incomplete  34                0             0.354          96
+3      DB                        complete  77               76             0.802          96
+4      DB                incomplete_other  18                0             0.188          96
+5      DB               repeat_incomplete   1                0             0.010          96
+6      DP                        complete  54               51             0.562          96
+7      DP                incomplete_other  22                0             0.229          96
+8      DP               repeat_incomplete  20                0             0.208          96
+9   W1024           complete_after_switch  32               32             0.333          96
+10  W1024                incomplete_other  25                0             0.260          96
+11  W1024  repeat_after_switch_incomplete  13                0             0.135          96
+12  W1024     repeat_in_window_incomplete   1                0             0.010          96
+13  W1024         window_ended_generation  25               25             0.260          96
+14   W256           complete_after_switch  35               32             0.365          96
+15   W256                incomplete_other  38                0             0.396          96
+16   W256  repeat_after_switch_incomplete  22                0             0.229          96
+17   W256     repeat_in_window_incomplete   1                0             0.010          96
+18    W32           complete_after_switch  28               26             0.292          96
+19    W32                incomplete_other  44                0             0.458          96
+20    W32  repeat_after_switch_incomplete  24                0             0.250          96
+     arm                    cls   n  correct  mean_pos
+0  W1024  complete_after_switch  32       32   1897.97
+1   W256  complete_after_switch  35       32   1700.00
+2    W32  complete_after_switch  28       26   1801.96
+                        arm  n_runs_not_completed_in_window  complete_after_switch  primary_after_switch  repeat_after_switch
+0                     W1024                              71                  0.451                 0.451                0.183
+1                      W256                              96                  0.365                 0.333                0.229
+2                       W32                              96                  0.292                 0.271                0.250
+3  D0 (all runs, reference)                              96                  0.271                 0.240                0.354
+     arm   n  mean_new_tokens  bf16_prefill  bf16_decode  awq3_prefill_sim  awq3_decode  fwd_total_sim  mean_window  prefix_len  lat_stageA_s  lat_stageB_s  awq3_catchup_deployed  extra_forward_tokens_deployed_vs_D0
+0     D0  96           3394.1           0.0          0.0            2957.6       3394.1         6351.7          0.0      2957.6         155.2           NaN                    0.0                                  0.0
+1    W32  96           3427.6        2957.6         32.0            2989.6       3395.6         9374.8         32.0      2957.6          26.6         174.9                   32.0                               2989.6
+2   W256  96           3223.4        2957.6        256.0            3213.6       2967.4         9394.5        256.0      2957.6          45.7         159.2                  256.0                               3213.6
+3  W1024  96           2489.6        2957.6        949.4            3128.3       1540.2         8575.4        949.4      2957.6          79.6         123.4                  949.4                               3907.0
+4     DB  96           2141.3        2957.6       2141.3               0.0          0.0         5098.9          0.0      2957.6         112.6           NaN                    0.0                              -1252.8
+5     DP  96           2980.0           0.0          0.0            2957.6       2980.0         5937.6          0.0      2957.6         144.7           NaN                    0.0                                  0.0
+LONG subset
+   group         arm   metric  mean_arm  mean_D0  diff_vs_D0  ci_lo  ci_hi  n_anchors  n_runs_arm
+0   long          DP  primary     0.625    0.208       0.417  0.208  0.583          8          24
+5   long          DB  primary     0.792    0.208       0.583  0.333  0.792          8          24
+10  long         W32  primary     0.167    0.208      -0.042 -0.125  0.000          8          24
+15  long        W256  primary     0.333    0.208       0.125 -0.083  0.333          8          24
+20  long       W1024  primary     0.708    0.208       0.500  0.250  0.750          8          24
+25  long   W1024-W32  primary     0.708    0.167       0.542  0.333  0.750          8          24
+30  long  W1024-W256  primary     0.708    0.333       0.375  0.125  0.625          8          24
+35  long    W256-W32  primary     0.333    0.167       0.167 -0.042  0.375          8          24
+40  long    DB-W1024  primary     0.792    0.708       0.083 -0.125  0.333          8          24

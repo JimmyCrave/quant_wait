@@ -1,0 +1,6 @@
+segmented 0 300
+Token indices sequence length is longer than the specified maximum sequence length for this model (18283 > 16384). Running this sequence through the model will result in indexing errors
+segmented 100 300
+segmented 200 300
+embedding 62218
+done

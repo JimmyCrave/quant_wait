@@ -1,0 +1,13 @@
+.venv/
+.bootstrap/
+wheels/
+Quantized-Reasoning-Models/
+vllm-overthinking-penalty/
+quant_reasoning_lab/models/
+quant_reasoning_lab/data/*
+!quant_reasoning_lab/data/labels_*.jsonl
+quant_reasoning_lab/dur_study/data/b7_steps.jsonl
+__pycache__/
+*.pyc
+*.pt
+*.npz

@@ -1,0 +1,4 @@
+arm,cls,n,correct,mean_pos
+W1024,complete_after_switch,32,32,1897.96875
+W256,complete_after_switch,35,32,1700.0
+W32,complete_after_switch,28,26,1801.9642857142858

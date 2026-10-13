@@ -1,0 +1,42 @@
+{
+  "BF16": {
+    "status": "completed",
+    "n_questions": 100,
+    "accuracy": 0.8,
+    "accuracy_se_binomial": 0.04,
+    "mean_tokens": 6713.38,
+    "median_tokens": 3305.5,
+    "p90_tokens": 16835.900000000012,
+    "budget_exhausted_frac": 0.05,
+    "budget_exhausted_n": 5,
+    "wall_time_s": 1146.1552557945251,
+    "marker_lambda": null
+  },
+  "AWQ3 (numerical simulation)": {
+    "status": "completed",
+    "n_questions": 100,
+    "accuracy": 0.39,
+    "accuracy_se_binomial": 0.048774993593028795,
+    "mean_tokens": 25841.11,
+    "median_tokens": 32768.0,
+    "p90_tokens": 32768.0,
+    "budget_exhausted_frac": 0.7,
+    "budget_exhausted_n": 70,
+    "wall_time_s": 3174.360121011734,
+    "marker_lambda": null
+  },
+  "AWQ3 + marker penalty lambda=1.0": {
+    "status": "completed",
+    "n_questions": 100,
+    "accuracy": 0.51,
+    "accuracy_se_binomial": 0.04998999899979995,
+    "mean_tokens": 15855.79,
+    "median_tokens": 8378.0,
+    "p90_tokens": 32768.0,
+    "budget_exhausted_frac": 0.35,
+    "budget_exhausted_n": 35,
+    "wall_time_s": 2087.57141828537,
+    "marker_lambda": 1.0
+  },
+  "same_questions_across_groups": true
+}

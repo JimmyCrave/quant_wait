@@ -1,0 +1,20 @@
+  unit torch.float32 lambda=1.0: only marker ids changed (49/49); max |shift+lambda|=0.0000
+  unit torch.float32 lambda=-2.0: only marker ids changed (49/49); max |shift+lambda|=0.0000
+  unit torch.float32 lambda=0.7: only marker ids changed (49/49); max |shift+lambda|=0.0000
+  unit torch.bfloat16 lambda=1.0: only marker ids changed (49/49); max |shift+lambda|=0.0078
+  unit torch.bfloat16 lambda=-2.0: only marker ids changed (49/49); max |shift+lambda|=0.0312
+  unit torch.bfloat16 lambda=0.7: only marker ids changed (49/49); max |shift+lambda|=0.0125
+torch unit test OK
+
+T=1.0: lambda=0 logprobs identical to no-processor over 2000 tokens; sampled token equal
+  lambda=1.0: 1990 non-marker / 10 marker tokens compared; max |non-marker relative change|=5.96e-07; marker raw-logit shifts min/max=-1.0000/-1.0000 (expected -1.0)
+    max |shift+lambda| = 0.0000 (bf16 rounding of raw logits)
+  lambda=-2.0: 1978 non-marker / 10 marker tokens compared; max |non-marker relative change|=3.58e-07; marker raw-logit shifts min/max=1.9375/2.0313 (expected 2.0)
+    max |shift+lambda| = 0.0625 (bf16 rounding of raw logits)
+T=0.6: lambda=0 logprobs identical to no-processor over 2000 tokens; sampled token equal
+  lambda=1.0: 1990 non-marker / 10 marker tokens compared; max |non-marker relative change|=6.85e-07; marker raw-logit shifts min/max=-0.9974/-0.9974 (expected -1.0)
+    max |shift+lambda| = 0.0026 (bf16 rounding of raw logits)
+  lambda=-2.0: 1978 non-marker / 10 marker tokens compared; max |non-marker relative change|=2.47e-06; marker raw-logit shifts min/max=1.9325/2.0260 (expected 2.0)
+    max |shift+lambda| = 0.0675 (bf16 rounding of raw logits)
+ALL CHECKS PASSED
+[rank0]:[W1011 11:39:32.592369245 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL o

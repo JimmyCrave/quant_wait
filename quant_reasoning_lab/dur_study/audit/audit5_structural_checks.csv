@@ -1,0 +1,15 @@
+check,passed,detail
+prompt ids == tokenisation of the stage-1 full_prompt (100 questions),True,mismatches=0; len==num_input_tokens for 0/100
+each anchor prompt+prefix has exactly 1 BOS/User/Assistant/<think> and no </think>/EOS (32 anchors),True,"violations=0; special ids={'<｜begin▁of▁sentence｜>': 151646, '<｜User｜>': 151644, '<｜Assistant｜>': 151645, '<think>': 151648, '</think>': 151649, '<｜end▁of▁sentence｜>': 151643}"
+anchor prefix == ORIGINAL sampled token ids of the source trajectory (no re-tokenisation),True,32/32 checked against saved generated_token_ids
+merged runs: eos_not_last == 0,True,"violations=0 of 2256 runs (1384 window runs: 1354 continued, 30 ended inside the window)"
+merged runs: stop_without_eos == 0,True,"violations=0 of 2256 runs (1384 window runs: 1354 continued, 30 ended inside the window)"
+merged runs: over_budget == 0,True,"violations=0 of 2256 runs (1384 window runs: 1354 continued, 30 ended inside the window)"
+merged runs: length_but_short == 0,True,"violations=0 of 2256 runs (1384 window runs: 1354 continued, 30 ended inside the window)"
+merged runs: window_not_prefix == 0,True,"violations=0 of 2256 runs (1384 window runs: 1354 continued, 30 ended inside the window)"
+merged runs: window_len_wrong == 0,True,"violations=0 of 2256 runs (1384 window runs: 1354 continued, 30 ended inside the window)"
+merged runs: stopped_window_continued == 0,True,"violations=0 of 2256 runs (1384 window runs: 1354 continued, 30 ended inside the window)"
+merged runs: stage2_prompt_not_exact == 0,True,"violations=0 of 2256 runs (1384 window runs: 1354 continued, 30 ended inside the window)"
+"INFO decode->encode round trip equals the sampled ids (only matters for the detector segmentation, never for generation)",True,0.940 of 300 main runs round-trip exactly
+"sampling params identical in every stage (T=0.6, top_p=0.95; no repetition/frequency penalty; no min_tokens); only a per-request seed and the optional marker processor vary",True,"stage-2 seed = stage-1 seed + 100 (a fresh independent random stream; the per-request RNG cannot be carried across two vLLM calls, distributionally irrelevant); marker processor only in DP runs (stateless); prefix caching off"
+"INFO same model+seed: first W tokens of the switch run vs the no-switch run (bf16 kernels / batch composition can flip a sampled token, so equality is not required)",True,"[{'arm': 'SBB256', 'n': 256, 'frac_identical_first_W': 0.0, 'median_lcp': 2.0}, {'arm': 'SBB32', 'n': 256, 'frac_identical_first_W': 0.066, 'median_lcp': 2.0}, {'arm': 'SQQ256', 'n': 256, 'frac_identical_first_W': 0.004, 'median_lcp': 2.0}, {'arm': 'SQQ32', 'n': 256, 'frac_identical_first_W': 0.051, 'median_lcp': 2.0}]"

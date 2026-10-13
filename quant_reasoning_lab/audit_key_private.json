@@ -1,0 +1,842 @@
+{
+ "4626b5a9c6": {
+  "traj_id": "bf16_s42_test/number_theory/679.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "c8e2277c9a": {
+  "traj_id": "awq3_s43_test/geometry/947.json",
+  "start": 34,
+  "end": 44,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "1a0535b0ab": {
+  "traj_id": "bf16_s44_test/algebra/1787.json",
+  "start": 5,
+  "end": 15,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "ba7bbc9402": {
+  "traj_id": "bf16_s43_test/precalculus/986.json",
+  "start": 25,
+  "end": 35,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "098efb69d3": {
+  "traj_id": "awq3_s43_test/algebra/297.json",
+  "start": 445,
+  "end": 455,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "436f40dbda": {
+  "traj_id": "bf16_s44_test/precalculus/927.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "9a2f4d2f22": {
+  "traj_id": "bf16_s44_test/intermediate_algebra/128.json",
+  "start": 124,
+  "end": 134,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "c01cb22283": {
+  "traj_id": "awq3_s43_test/number_theory/612.json",
+  "start": 6,
+  "end": 16,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "cf4fde4c9c": {
+  "traj_id": "awq3_s43_test/geometry/183.json",
+  "start": 134,
+  "end": 144,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "d325957f22": {
+  "traj_id": "bf16_s42_test/precalculus/1056.json",
+  "start": 151,
+  "end": 161,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "bb36a76227": {
+  "traj_id": "awq3_s44_test/intermediate_algebra/1197.json",
+  "start": 24,
+  "end": 34,
+  "stratum": "normal_G",
+  "config": "awq3"
+ },
+ "5450eb1d9f": {
+  "traj_id": "awq3_s45_test/intermediate_algebra/1197.json",
+  "start": 234,
+  "end": 244,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "fa772cc920": {
+  "traj_id": "awq3_s45_test/algebra/907.json",
+  "start": 12,
+  "end": 22,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "8da258a304": {
+  "traj_id": "bf16_s44_test/precalculus/1289.json",
+  "start": 5,
+  "end": 15,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "6634ca79c0": {
+  "traj_id": "awq3_s45_test/geometry/965.json",
+  "start": 34,
+  "end": 44,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "e3ba764efb": {
+  "traj_id": "bf16_s43_test/precalculus/398.json",
+  "start": 61,
+  "end": 71,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "6a419f60ba": {
+  "traj_id": "bf16_s43_test/algebra/246.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "bee9b149f4": {
+  "traj_id": "awq3_s43_test/number_theory/1055.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "awq3"
+ },
+ "59b5618155": {
+  "traj_id": "bf16_s45_test/intermediate_algebra/607.json",
+  "start": 35,
+  "end": 45,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "f051478872": {
+  "traj_id": "bf16_s42_test/prealgebra/378.json",
+  "start": 103,
+  "end": 113,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "33767521dc": {
+  "traj_id": "awq3_s44_test/intermediate_algebra/1300.json",
+  "start": 387,
+  "end": 397,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "0cc4cc04c8": {
+  "traj_id": "bf16_s42_test/algebra/2199.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "5f79a7fe23": {
+  "traj_id": "awq3_s45_test/intermediate_algebra/183.json",
+  "start": 44,
+  "end": 54,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "9e5f95d46d": {
+  "traj_id": "bf16_s43_test/number_theory/515.json",
+  "start": 8,
+  "end": 18,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "315eb3d83c": {
+  "traj_id": "awq3_s42_test/precalculus/1133.json",
+  "start": 20,
+  "end": 30,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "9e1f3b367a": {
+  "traj_id": "awq3_s42_test/algebra/892.json",
+  "start": 101,
+  "end": 111,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "6d9da13e95": {
+  "traj_id": "bf16_s45_test/algebra/1787.json",
+  "start": 11,
+  "end": 21,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "71db304c5a": {
+  "traj_id": "awq3_s45_test/precalculus/34.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "awq3"
+ },
+ "10d7fa1478": {
+  "traj_id": "awq3_s43_test/number_theory/183.json",
+  "start": 64,
+  "end": 74,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "b06d85349a": {
+  "traj_id": "awq3_s43_test/geometry/65.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "awq3"
+ },
+ "60e6809831": {
+  "traj_id": "bf16_s43_test/number_theory/515.json",
+  "start": 43,
+  "end": 53,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "1d034b1210": {
+  "traj_id": "awq3_s42_test/number_theory/769.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "awq3"
+ },
+ "c1f68fb887": {
+  "traj_id": "bf16_s43_test/number_theory/612.json",
+  "start": 72,
+  "end": 82,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "499881ef9d": {
+  "traj_id": "awq3_s42_test/intermediate_algebra/183.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "awq3"
+ },
+ "40578de2e9": {
+  "traj_id": "awq3_s42_test/prealgebra/1646.json",
+  "start": 55,
+  "end": 65,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "817ad2677f": {
+  "traj_id": "awq3_s42_test/geometry/627.json",
+  "start": 318,
+  "end": 328,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "6428f69783": {
+  "traj_id": "bf16_s45_test/intermediate_algebra/860.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "6232eaa1de": {
+  "traj_id": "awq3_s42_test/algebra/224.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "63c22b9566": {
+  "traj_id": "bf16_s43_test/number_theory/521.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "99be22363c": {
+  "traj_id": "bf16_s42_test/number_theory/417.json",
+  "start": 185,
+  "end": 195,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "cb7d69fa6b": {
+  "traj_id": "awq3_s44_test/intermediate_algebra/1791.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "awq3"
+ },
+ "be24ddf69b": {
+  "traj_id": "awq3_s43_test/number_theory/769.json",
+  "start": 125,
+  "end": 135,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "90aaf386b9": {
+  "traj_id": "awq3_s45_test/intermediate_algebra/1300.json",
+  "start": 34,
+  "end": 44,
+  "stratum": "normal_G",
+  "config": "awq3"
+ },
+ "e653f8615f": {
+  "traj_id": "bf16_s43_test/precalculus/145.json",
+  "start": 68,
+  "end": 78,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "5ff6b9b031": {
+  "traj_id": "bf16_s43_test/intermediate_algebra/1151.json",
+  "start": 84,
+  "end": 94,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "eda20fab28": {
+  "traj_id": "bf16_s44_test/algebra/2199.json",
+  "start": 14,
+  "end": 24,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "d67f3f7683": {
+  "traj_id": "bf16_s43_test/intermediate_algebra/776.json",
+  "start": 124,
+  "end": 134,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "846f499b20": {
+  "traj_id": "bf16_s44_test/geometry/1140.json",
+  "start": 14,
+  "end": 24,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "65a6ea9020": {
+  "traj_id": "bf16_s44_test/counting_and_probability/525.json",
+  "start": 104,
+  "end": 114,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "6477913484": {
+  "traj_id": "awq3_s42_test/geometry/947.json",
+  "start": 131,
+  "end": 141,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "5d306f37dc": {
+  "traj_id": "awq3_s45_test/prealgebra/1317.json",
+  "start": 194,
+  "end": 204,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "142caa791f": {
+  "traj_id": "awq3_s45_test/precalculus/742.json",
+  "start": 172,
+  "end": 182,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "554afe3864": {
+  "traj_id": "awq3_s42_test/algebra/246.json",
+  "start": 482,
+  "end": 492,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "e9ba9939f3": {
+  "traj_id": "bf16_s43_test/intermediate_algebra/607.json",
+  "start": 84,
+  "end": 94,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "5c9fbd81e4": {
+  "traj_id": "awq3_s44_test/number_theory/234.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "awq3"
+ },
+ "697257dfe9": {
+  "traj_id": "bf16_s42_test/intermediate_algebra/1791.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "b46a46b9ef": {
+  "traj_id": "awq3_s42_test/intermediate_algebra/860.json",
+  "start": 54,
+  "end": 64,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "909656b9e2": {
+  "traj_id": "awq3_s42_test/precalculus/1056.json",
+  "start": 475,
+  "end": 485,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "60fb2d3198": {
+  "traj_id": "bf16_s42_test/number_theory/1065.json",
+  "start": 10,
+  "end": 20,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "f1c9184045": {
+  "traj_id": "awq3_s44_test/algebra/1343.json",
+  "start": 18,
+  "end": 28,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "42521a61c4": {
+  "traj_id": "awq3_s45_test/algebra/1004.json",
+  "start": 17,
+  "end": 27,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "df09be8589": {
+  "traj_id": "awq3_s42_test/intermediate_algebra/1210.json",
+  "start": 62,
+  "end": 72,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "0b58ed3a7d": {
+  "traj_id": "bf16_s44_test/algebra/2199.json",
+  "start": 14,
+  "end": 24,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "c4439b94ab": {
+  "traj_id": "awq3_s43_test/geometry/456.json",
+  "start": 47,
+  "end": 57,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "a78d33ccfe": {
+  "traj_id": "bf16_s42_test/intermediate_algebra/1210.json",
+  "start": 12,
+  "end": 22,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "361f0294d2": {
+  "traj_id": "bf16_s42_test/precalculus/742.json",
+  "start": 52,
+  "end": 62,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "c04f131900": {
+  "traj_id": "bf16_s43_test/algebra/733.json",
+  "start": 44,
+  "end": 54,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "2500af4f22": {
+  "traj_id": "bf16_s45_test/number_theory/769.json",
+  "start": 44,
+  "end": 54,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "c04a32d164": {
+  "traj_id": "awq3_s45_test/prealgebra/1555.json",
+  "start": 46,
+  "end": 56,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "109535bed0": {
+  "traj_id": "bf16_s42_test/intermediate_algebra/128.json",
+  "start": 220,
+  "end": 230,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "6da00cb5c5": {
+  "traj_id": "bf16_s43_test/geometry/1140.json",
+  "start": 181,
+  "end": 191,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "eebdf5f513": {
+  "traj_id": "awq3_s43_test/precalculus/697.json",
+  "start": 26,
+  "end": 36,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "02cc10b198": {
+  "traj_id": "awq3_s43_test/prealgebra/1317.json",
+  "start": 7,
+  "end": 17,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "e346c7a3dc": {
+  "traj_id": "awq3_s42_test/precalculus/986.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "awq3"
+ },
+ "dda31a4cfd": {
+  "traj_id": "awq3_s42_test/intermediate_algebra/860.json",
+  "start": 607,
+  "end": 617,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "346ef6505f": {
+  "traj_id": "bf16_s43_test/intermediate_algebra/662.json",
+  "start": 174,
+  "end": 184,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "38a10890b8": {
+  "traj_id": "awq3_s42_test/algebra/1529.json",
+  "start": 364,
+  "end": 374,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "2f7c5a9d2f": {
+  "traj_id": "bf16_s42_test/precalculus/24313.json",
+  "start": 10,
+  "end": 20,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "8b8e665a34": {
+  "traj_id": "bf16_s42_test/precalculus/801.json",
+  "start": 74,
+  "end": 84,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "b6807f53fa": {
+  "traj_id": "bf16_s42_test/geometry/65.json",
+  "start": 43,
+  "end": 53,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "cbca4ba617": {
+  "traj_id": "bf16_s43_test/intermediate_algebra/1197.json",
+  "start": 223,
+  "end": 233,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "b70db398bc": {
+  "traj_id": "awq3_s43_test/counting_and_probability/525.json",
+  "start": 14,
+  "end": 24,
+  "stratum": "normal_G",
+  "config": "awq3"
+ },
+ "e78dadf3bf": {
+  "traj_id": "awq3_s44_test/number_theory/1172.json",
+  "start": 114,
+  "end": 124,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "0442a37cf2": {
+  "traj_id": "bf16_s43_test/intermediate_algebra/102.json",
+  "start": 38,
+  "end": 48,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "0e63791fd7": {
+  "traj_id": "awq3_s43_test/number_theory/691.json",
+  "start": 28,
+  "end": 38,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "8234fc7cb8": {
+  "traj_id": "awq3_s43_test/algebra/297.json",
+  "start": 384,
+  "end": 394,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "679087790e": {
+  "traj_id": "awq3_s42_test/precalculus/145.json",
+  "start": 150,
+  "end": 160,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "76d78f39cb": {
+  "traj_id": "awq3_s45_test/intermediate_algebra/1210.json",
+  "start": 24,
+  "end": 34,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "125c325ff3": {
+  "traj_id": "awq3_s43_test/intermediate_algebra/776.json",
+  "start": 192,
+  "end": 202,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "f4436cc5c7": {
+  "traj_id": "bf16_s43_test/precalculus/819.json",
+  "start": 30,
+  "end": 40,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "1a5e453a47": {
+  "traj_id": "awq3_s43_test/geometry/627.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "0e76d6f8a1": {
+  "traj_id": "awq3_s42_test/algebra/2517.json",
+  "start": 558,
+  "end": 568,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "0f9da09182": {
+  "traj_id": "bf16_s45_test/precalculus/697.json",
+  "start": 34,
+  "end": 44,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "8803470d31": {
+  "traj_id": "awq3_s43_test/geometry/106.json",
+  "start": 546,
+  "end": 556,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "71a0c9023e": {
+  "traj_id": "bf16_s44_test/algebra/733.json",
+  "start": 14,
+  "end": 24,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "0f873fe612": {
+  "traj_id": "awq3_s45_test/algebra/101.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "ecf09a8c8c": {
+  "traj_id": "bf16_s42_test/intermediate_algebra/662.json",
+  "start": 104,
+  "end": 114,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "784cec5440": {
+  "traj_id": "bf16_s45_test/precalculus/398.json",
+  "start": 34,
+  "end": 44,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "eeec23f585": {
+  "traj_id": "awq3_s44_test/prealgebra/378.json",
+  "start": 555,
+  "end": 565,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "1626407178": {
+  "traj_id": "awq3_s44_test/geometry/106.json",
+  "start": 344,
+  "end": 354,
+  "stratum": "repetition_candidate",
+  "config": "awq3"
+ },
+ "2b0321312e": {
+  "traj_id": "bf16_s43_test/intermediate_algebra/991.json",
+  "start": 18,
+  "end": 28,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "41bd4bd64e": {
+  "traj_id": "bf16_s44_test/prealgebra/1655.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "63e4c7fb9a": {
+  "traj_id": "awq3_s42_test/prealgebra/1187.json",
+  "start": 393,
+  "end": 403,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "bfbed74453": {
+  "traj_id": "bf16_s45_test/number_theory/769.json",
+  "start": 48,
+  "end": 58,
+  "stratum": "near_answer",
+  "config": "bf16"
+ },
+ "eae914c9f9": {
+  "traj_id": "bf16_s44_test/prealgebra/1640.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "ce146df355": {
+  "traj_id": "bf16_s45_test/precalculus/1313.json",
+  "start": 71,
+  "end": 81,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "c7b71e31d9": {
+  "traj_id": "awq3_s42_test/precalculus/34.json",
+  "start": 71,
+  "end": 81,
+  "stratum": "near_answer",
+  "config": "awq3"
+ },
+ "492516a28a": {
+  "traj_id": "bf16_s44_test/number_theory/417.json",
+  "start": 174,
+  "end": 184,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "63c33d4d12": {
+  "traj_id": "bf16_s42_test/intermediate_algebra/1300.json",
+  "start": 83,
+  "end": 93,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "bfa479ef60": {
+  "traj_id": "bf16_s42_test/prealgebra/1646.json",
+  "start": 44,
+  "end": 54,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "3811a2305c": {
+  "traj_id": "awq3_s42_test/number_theory/679.json",
+  "start": 358,
+  "end": 368,
+  "stratum": "near_end",
+  "config": "awq3"
+ },
+ "abbb9c352f": {
+  "traj_id": "bf16_s42_test/algebra/2199.json",
+  "start": 6,
+  "end": 16,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "66341011c4": {
+  "traj_id": "bf16_s44_test/prealgebra/1555.json",
+  "start": 12,
+  "end": 22,
+  "stratum": "near_end",
+  "config": "bf16"
+ },
+ "d7dcb7626d": {
+  "traj_id": "bf16_s45_test/prealgebra/977.json",
+  "start": 11,
+  "end": 21,
+  "stratum": "valid_correction_candidate",
+  "config": "bf16"
+ },
+ "19acb56374": {
+  "traj_id": "awq3_s43_test/intermediate_algebra/1197.json",
+  "start": 400,
+  "end": 410,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "114cf9be79": {
+  "traj_id": "bf16_s44_test/intermediate_algebra/1791.json",
+  "start": 34,
+  "end": 44,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "81b3b38951": {
+  "traj_id": "awq3_s45_test/number_theory/679.json",
+  "start": 15,
+  "end": 25,
+  "stratum": "valid_correction_candidate",
+  "config": "awq3"
+ },
+ "e6ce990eaf": {
+  "traj_id": "bf16_s45_test/number_theory/847.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "bf16"
+ },
+ "5a58fe31aa": {
+  "traj_id": "bf16_s44_test/intermediate_algebra/102.json",
+  "start": 134,
+  "end": 144,
+  "stratum": "repetition_candidate",
+  "config": "bf16"
+ },
+ "997ccfe8fa": {
+  "traj_id": "awq3_s45_test/number_theory/1065.json",
+  "start": 4,
+  "end": 14,
+  "stratum": "normal_G",
+  "config": "awq3"
+ }
+}
